@@ -1,1 +1,1 @@
-Welcome to Sipi's repo!
+Welcome to Šipi's repo!
