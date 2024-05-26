@@ -45,7 +45,7 @@ window.setWindowTitle("Fretboard Viewer v0.1 by Alexandra Zerner")
 window.setFixedSize(1200, 240)
 
 buttons_grid_layout = QGridLayout()  # Grid layout for the fret buttons.
-buttons_grid_layout.setContentsMargins(12, 9, 1, 5)
+buttons_grid_layout.setContentsMargins(12, 8, 1, 5)
 
 center_widget = QWidget()
 center_widget.setFixedWidth(1200)
