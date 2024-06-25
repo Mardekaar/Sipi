@@ -1,10 +1,9 @@
 import java.awt.Color;
-import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
-import java.awt.Shape;
+import java.awt.RenderingHints;
 
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
@@ -19,15 +18,9 @@ import java.util.Hashtable;
 
 import javax.imageio.ImageIO;
 
-import javax.swing.JComponent;
-import javax.swing.JFrame;
 import javax.swing.JPanel;
-import javax.swing.SwingUtilities;
 
-public class FretboardViewer extends JComponent implements MouseListener {
-  private JPanel buttonPanel = new JPanel();
-
-  BufferedImage background;
+public class FretboardPanel extends JPanel implements MouseListener {
 
   Rectangle e0 = new Rectangle(6, 12, 50, 20);
   Rectangle e1 = new Rectangle(70, 12, 42, 20);
@@ -215,9 +208,16 @@ public class FretboardViewer extends JComponent implements MouseListener {
                        E12,E13,E14,E15,E16,E17,
                        E18,E19,E20,E21,E22,E23,E24};
 
+  BufferedImage background;
+  BufferedImage subImage;
+
+  Color fretColor = new Color(0f, 0f, 0f, .5f);
+
+  int rectRoundness = 10;
+
   Hashtable<String, Boolean> hits = new Hashtable<String, Boolean>();
 
-  public FretboardViewer() {
+  public FretboardPanel() {
     try {
       background = ImageIO.read(getClass().getResource("fretboard.png"));
     } catch(MalformedURLException e) {
@@ -229,23 +229,23 @@ public class FretboardViewer extends JComponent implements MouseListener {
     for(Rectangle r : rects) {
       hits.put(r.toString(), false);
     }
-    
-    buttonPanel.setOpaque(false);
+
     addMouseListener(this);
-    add(buttonPanel);
   }
 
   void onHit(Rectangle r) {
-    Graphics g = this.getGraphics();
+    Graphics2D g2d = (Graphics2D) this.getGraphics();
+    g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
 
     if(!hits.get(r.toString())) {
-      g.setColor(Color.RED);
-      g.fillRoundRect(r.x, r.y, r.width, r.height, 5, 5);
+      g2d.setColor(Color.RED);
+      g2d.fillRoundRect(r.x, r.y, r.width, r.height, rectRoundness, rectRoundness);
       hits.replace(r.toString(), false, true);
     } else {
-      g.drawImage(background.getSubimage(r.x, r.y, r.width, r.height), r.x, r.y, this);
-      g.setColor(new Color(0f, 0f, 0f, .1f));
-      g.fillRoundRect(r.x, r.y, r.width, r.height, 5, 5);
+      subImage = background.getSubimage(r.x, r.y, r.width, r.height);
+      g2d.drawImage(subImage, r.x, r.y, this);
+      g2d.setColor(fretColor);
+      g2d.fillRoundRect(r.x, r.y, r.width, r.height, rectRoundness, rectRoundness);
       hits.replace(r.toString(), true, false);
     }
   }
@@ -253,12 +253,15 @@ public class FretboardViewer extends JComponent implements MouseListener {
   @Override
   protected void paintComponent(Graphics g) {
     super.paintComponent(g);
+    Graphics2D g2d = (Graphics2D) g;
+    g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
 
-    g.drawImage(background, 0, 0, this);
-    g.setColor(new Color(0f, 0f, 0f, .1f));
+    g2d.drawImage(background, 0, 0, this);
+    g2d.setColor(fretColor);
 
     for(int i = 0; i < rects.length; i++) {
-      g.fillRoundRect(rects[i].x, rects[i].y, rects[i].width, rects[i].height, 5, 5);
+      g2d.fillRoundRect(rects[i].x, rects[i].y, rects[i].width, rects[i].height, 
+                        rectRoundness, rectRoundness);
     }
   }
 
@@ -281,20 +284,6 @@ public class FretboardViewer extends JComponent implements MouseListener {
   }
      
   public void mouseClicked(MouseEvent e) {
-  }
-
-  public static void main(String[] args) {
-    FretboardViewer fv = new FretboardViewer();
-
-    JFrame frame = new JFrame("Fretboard Viewer");
-    frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-    frame.setSize(1200, 268);
-    frame.setResizable(false);
-
-    Container contentPane = frame.getContentPane();
-    contentPane.add(fv);
-
-    frame.setVisible(true);
   }
 }
 
