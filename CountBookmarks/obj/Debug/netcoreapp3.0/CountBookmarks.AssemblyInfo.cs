@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("CountBookmarks")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9d2b461f3d0f8873f300eddb93f42432805752f6")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c3a552bf86bb5eeb3d086cb2c7f7209a8fba0f10")]
 [assembly: System.Reflection.AssemblyProductAttribute("CountBookmarks")]
 [assembly: System.Reflection.AssemblyTitleAttribute("CountBookmarks")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
