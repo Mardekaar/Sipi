@@ -4,22 +4,22 @@ import java.util.Scanner;
 
 public class average_word_length {
 	public static void main(String[] args) {
-	    /*
-		input
+		/*
+		 * input
+		 * 
+		 * count characters
+		 * count spaces
+		 * word count = spaces + 1
+		 * average = characters / words
+		 */
 
-		count characters
-		count spaces
-		word count = spaces + 1
-		average = characters / words
-		*/
-		
-		int ch, chars = 0, spaces = 0, word_count = 0;
+		int chars = 0, spaces = 0, word_count = 0;
 		float average = 0.0f;
 		String user_input;
 		Scanner scanner = new Scanner(System.in);
 
 		System.out.print("Enter a sentence: ");
-		
+
 		user_input = scanner.nextLine();
 		for (int i = 0; i < user_input.length(); i++) {
 			if (user_input.charAt(i) == ' ') {
@@ -29,7 +29,7 @@ public class average_word_length {
 			}
 		}
 		word_count = spaces + 1;
-		average = (float)chars / (float)word_count;
+		average = (float) chars / (float) word_count;
 
 		System.out.println("chars: " + chars);
 		System.out.println("spaces: " + spaces);
