@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "d:\\_Download\\_GIT\\Sipi\\CountBookmarks\\CountBookmarks.csproj": {}
+    "D:\\_Download\\_GIT\\Sipi\\CountBookmarks\\CountBookmarks.csproj": {}
   },
   "projects": {
-    "d:\\_Download\\_GIT\\Sipi\\CountBookmarks\\CountBookmarks.csproj": {
+    "D:\\_Download\\_GIT\\Sipi\\CountBookmarks\\CountBookmarks.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "d:\\_Download\\_GIT\\Sipi\\CountBookmarks\\CountBookmarks.csproj",
+        "projectUniqueName": "D:\\_Download\\_GIT\\Sipi\\CountBookmarks\\CountBookmarks.csproj",
         "projectName": "CountBookmarks",
-        "projectPath": "d:\\_Download\\_GIT\\Sipi\\CountBookmarks\\CountBookmarks.csproj",
+        "projectPath": "D:\\_Download\\_GIT\\Sipi\\CountBookmarks\\CountBookmarks.csproj",
         "packagesPath": "C:\\Users\\tibor\\.nuget\\packages\\",
-        "outputPath": "d:\\_Download\\_GIT\\Sipi\\CountBookmarks\\obj\\",
+        "outputPath": "D:\\_Download\\_GIT\\Sipi\\CountBookmarks\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\tibor\\AppData\\Roaming\\NuGet\\NuGet.Config"
