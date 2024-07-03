@@ -1,27 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "D:\\_Download\\_GIT\\Sipi\\CountBookmarks\\CountBookmarks.csproj": {}
+    "C:\\Users\\tibors\\Documents\\_GIT\\Sipi\\CountBookmarks\\CountBookmarks.csproj": {}
   },
   "projects": {
-    "D:\\_Download\\_GIT\\Sipi\\CountBookmarks\\CountBookmarks.csproj": {
+    "C:\\Users\\tibors\\Documents\\_GIT\\Sipi\\CountBookmarks\\CountBookmarks.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\_Download\\_GIT\\Sipi\\CountBookmarks\\CountBookmarks.csproj",
+        "projectUniqueName": "C:\\Users\\tibors\\Documents\\_GIT\\Sipi\\CountBookmarks\\CountBookmarks.csproj",
         "projectName": "CountBookmarks",
-        "projectPath": "D:\\_Download\\_GIT\\Sipi\\CountBookmarks\\CountBookmarks.csproj",
-        "packagesPath": "C:\\Users\\tibor\\.nuget\\packages\\",
-        "outputPath": "D:\\_Download\\_GIT\\Sipi\\CountBookmarks\\obj\\",
+        "projectPath": "C:\\Users\\tibors\\Documents\\_GIT\\Sipi\\CountBookmarks\\CountBookmarks.csproj",
+        "packagesPath": "C:\\Users\\tibors\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\tibors\\Documents\\_GIT\\Sipi\\CountBookmarks\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\tibor\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\tibors\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.0"
         ],
-        "sources": {
-          "https://api.nuget.org/v3/index.json": {}
-        },
         "frameworks": {
           "netcoreapp3.0": {
             "targetAlias": "netcoreapp3.0",
