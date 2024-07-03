@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("GitHubBranchDelete")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5adce47404bdab029b7b1a577d66699a84476fc4")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+509e059bedfeb0d6af6d9b147be42fb4d0bcf8d6")]
 [assembly: System.Reflection.AssemblyProductAttribute("GitHubBranchDelete")]
 [assembly: System.Reflection.AssemblyTitleAttribute("GitHubBranchDelete")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
