@@ -8,25 +8,6 @@ public class NotesGenerator {
     String[] sharpChromatic = {"c", "c#", "d", "d#", "e", "f", "f#", "g", "g#", "a", "a#", "b"};
 
     int[] ionianMode = {0, 2, 4, 5, 7, 9, 11};
-    String[] ionianModeFlatKeys  = {"c", "db", "eb", "f", "gb", "ab", "bb"};
-
-    int[] dorianMode = {0, 2, 3, 5, 7, 9, 10};
-    String[] dorianModeFlatKeys  = {"c", "db", "eb", "f", "gb", "g", "ab", "bb"};
-
-    int[] phrygianMode = {0, 1, 3, 5, 7, 8, 10};
-    String[] phrygianModeFlatKeys  = {"c", "db", "d", "eb", "f", "gb", "g", "ab", "a", "bb"};
-
-    int[] lydianMode = {0, 2, 4, 6, 7, 9, 11};
-    String[] lydianModeFlatKeys = {"db", "eb", "f", "gb", "ab", "bb"};
-
-    int[] mixolydianMode = {0, 2, 4, 5, 7, 9, 10};
-    String[] mixolydianModeFlatKeys = {"c", "db", "eb", "f", "gb", "ab", "bb"};
-
-    int[] aeolianMode = {0, 2, 3, 5, 7, 8, 10};
-    String[] aeolianModeFlatKeys = {"c", "db", "d", "eb", "f", "gb", "g", "ab", "bb"};
-
-    int[] locrianMode = {0, 1, 3, 5, 6, 8, 10};
-    String[] locrianModeFlatKeys = flatChromatic;
 
     if(args.length < 2) {
       System.out.println("Usage examples:");
@@ -53,46 +34,59 @@ public class NotesGenerator {
     int[] mode = null;
     int startingNote = 0;
 
-    // these three lists have to be kept in sync and order
-    String[] listOfScales = {"ionian", "dorian", "phrygian", "lydian", "mixolydian", "aeolian", "locrian"};
-    int[][] listOfModes = {ionianMode, dorianMode, phrygianMode, lydianMode, 
-                           mixolydianMode, aeolianMode, locrianMode};
-    String[][] listOfFlatModes = {ionianModeFlatKeys, dorianModeFlatKeys, phrygianModeFlatKeys, 
-                                  lydianModeFlatKeys, mixolydianModeFlatKeys, aeolianModeFlatKeys,
-                                  locrianModeFlatKeys};
-
-    Hashtable<String, int[]> scaleTypeToMode = new Hashtable<>();
-    Hashtable<int[], String[]> modeToFlatMode = new Hashtable<>();
-
-    for(int i = 0; i < listOfScales.length; i++) {
-      scaleTypeToMode.put(listOfScales[i], listOfModes[i]);
-      modeToFlatMode.put(listOfModes[i], listOfFlatModes[i]);
+    if(Arrays.asList(flatChromatic).contains(key)) {
+      chromaticParent = flatChromatic;
+      startingNote = Arrays.asList(flatChromatic).indexOf(key);
+    } else {
+      chromaticParent = sharpChromatic;
+      startingNote = Arrays.asList(sharpChromatic).indexOf(key);
     }
 
-    if(Arrays.asList(listOfScales).contains(scaleType)) {
-      mode = scaleTypeToMode.get(scaleType);
-      if(Arrays.asList(modeToFlatMode.get(mode)).contains(key)) {
-        chromaticParent = flatChromatic;
-        startingNote = Arrays.asList(flatChromatic).indexOf(key);
-      } else {
-        chromaticParent = sharpChromatic;
-        startingNote = Arrays.asList(sharpChromatic).indexOf(key);
-      }
-    }
-
+    StringBuilder parentScale = new StringBuilder();
     int chromaticIndex = 0; 
-    for(int i = 0; i < mode.length; i++) {
-      chromaticIndex = mode[i] + startingNote;
+    for(int i = 0; i < ionianMode.length; i++) {
+      chromaticIndex = ionianMode[i] + startingNote;
       if(chromaticIndex >= chromaticParent.length) {
-        chromaticIndex = (mode[i] + startingNote) - chromaticParent.length;
+        chromaticIndex = (ionianMode[i] + startingNote) - chromaticParent.length;
       }
 
-      System.out.print(chromaticParent[chromaticIndex] +", ");
+      parentScale.append(chromaticParent[chromaticIndex]);
     }
 
-    System.out.print(chromaticParent[startingNote] +"\n");
+    //System.out.print(chromaticParent[startingNote] +"\n");
+
+    switch(scaleType) {
+      case "major" :   generateMode(parentScale, ionianMode, 0);
+                       break;
+      case "ionian":   generateMode(parentScale, ionianMode, 0);
+                       break;
+      case "dorian":   generateMode(parentScale, ionianMode, 1);
+                       break;
+      case "phrygian": generateMode(parentScale, ionianMode, 2);
+                       break;
+      case "lydian": generateMode(parentScale, ionianMode, 3);
+                       break;
+      case "mixolydian": generateMode(parentScale, ionianMode, 4);
+                       break;
+      case "aeolian": generateMode(parentScale, ionianMode, 5);
+                       break;
+      case "locrian": generateMode(parentScale, ionianMode, 6);
+                       break;
+    }
 
     System.out.println("key: "+ key +", starting note: "+ startingNote +", scale type: "+ scaleType);
  
+  }
+
+  static void generateMode(StringBuilder notes, int[] formula, int offset) {
+    for(int i = offset, j = 0; j < formula.length; i++, j++) {
+      if(i == formula.length) {
+        i = 0;
+      }
+
+      System.out.print(notes.charAt(i) +", ");
+    }
+
+    System.out.print(notes.charAt(offset) +"\n");
   }
 }
