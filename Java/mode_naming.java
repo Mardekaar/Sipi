@@ -1,6 +1,6 @@
 import java.util.Scanner;
-import java.util.Arrays;
-import java.lang.Integer;
+//import java.util.Arrays;
+//import java.lang.Integer;
 import java.lang.String;
 import java.lang.Character;
 
@@ -14,31 +14,30 @@ public class mode_naming {
 		char key_type;
 		String output_mode_label = new String();
 		String root_full = new String();
-		String starting_note = new String();
-		String note_set[] = {"", "", "", "", "", "", "", "", "", "", "", ""};
-		String note_set_updated[] = {"", "", "", "", "", "", "", "", "", "", "", ""};
-		int mode_chosen[] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
-		
+		// String starting_note = new String();
+		String note_set[] = { "", "", "", "", "", "", "", "", "", "", "", "" };
+		String note_set_updated[] = { "", "", "", "", "", "", "", "", "", "", "", "" };
+		int mode_chosen[] = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
 
 		// CIRCLE OF FIFTHS SEPARATED BY SHARPS/FLATS & MAJOR/MINOR
-		String circle_of_sharps_minor[] = {"A", "E", "B", "F#", "C#", "G#", "D#"};
-		String circle_of_sharps_major[] = {"C", "G", "D", "A", "E", "B", "F#"};
-		String circle_of_flats_minor[] = {"A", "D", "G", "C", "F", "Bb", "Eb"};
-		String circle_of_flats_major[] = {"C", "F", "Bb", "Eb", "Ab", "Db", "Gb"};
+		String circle_of_sharps_minor[] = { "A", "E", "B", "F#", "C#", "G#", "D#" };
+		String circle_of_sharps_major[] = { "C", "G", "D", "A", "E", "B", "F#" };
+		String circle_of_flats_minor[] = { "A", "D", "G", "C", "F", "Bb", "Eb" };
+		String circle_of_flats_major[] = { "C", "F", "Bb", "Eb", "Ab", "Db", "Gb" };
 
 		// MODES MATRICES
-		int lydian[] =     {1, 0, 1, 0, 1, 0, 1, 1, 0, 1, 0, 1};
-		int ionian[] =     {1, 0, 1, 0, 1, 1, 0, 1, 0, 1, 0, 1};
-		int mixolydian[] = {1, 0, 1, 0, 1, 1, 0, 1, 0, 1, 1, 0};
-		int dorian[] =     {1, 0, 1, 1, 0, 1, 0, 1, 0, 1, 1, 0};
-		int aeolian[] =    {1, 0, 1, 1, 0, 1, 0, 1, 1, 0, 1, 0};
-		int phrygian[] =   {1, 1, 0, 1, 0, 1, 0, 1, 1, 0, 1, 0};
-		int locrian[] =     {1, 1, 0, 1, 0, 1, 1, 0, 1, 0, 1, 0};
+		// int lydian[] = {1, 0, 1, 0, 1, 0, 1, 1, 0, 1, 0, 1};
+		int ionian[] = { 1, 0, 1, 0, 1, 1, 0, 1, 0, 1, 0, 1 };
+		// int mixolydian[] = {1, 0, 1, 0, 1, 1, 0, 1, 0, 1, 1, 0};
+		// int dorian[] = {1, 0, 1, 1, 0, 1, 0, 1, 0, 1, 1, 0};
+		int aeolian[] = { 1, 0, 1, 1, 0, 1, 0, 1, 1, 0, 1, 0 };
+		// int phrygian[] = {1, 1, 0, 1, 0, 1, 0, 1, 1, 0, 1, 0};
+		// int locrian[] = {1, 1, 0, 1, 0, 1, 1, 0, 1, 0, 1, 0};
 
-		// For sharp keys, letters from the sharp array will be used. For flat keys - from the flats.
-		String regular_sharps[] =   {"A", "A#", "B", "C", "C#", "D", "D#", "E", "F", "F#", "G", "G#"};
-		String regular_flats[] =    {"A", "Bb", "B", "C", "Db", "D", "Eb", "E", "F", "Gb", "G", "Ab"};
-
+		// For sharp keys, letters from the sharp array will be used. For flat keys -
+		// from the flats.
+		String regular_sharps[] = { "A", "A#", "B", "C", "C#", "D", "D#", "E", "F", "F#", "G", "G#" };
+		String regular_flats[] = { "A", "Bb", "B", "C", "Db", "D", "Eb", "E", "F", "Gb", "G", "Ab" };
 
 		Scanner scanner = new Scanner(System.in);
 
@@ -54,14 +53,13 @@ public class mode_naming {
 		// System.out.println(root_int);
 
 		if (root_int < 65 || root_int > 71) { // Checking the valid range using ASCII values.
-				System.out.println("Invalid input");
-				System.exit(0);
+			System.out.println("Invalid input");
+			System.exit(0);
 		}
 
 		// Getting the accidental:
 		System.out.print("Enter accidental (2 - sharp, 1 - flat, 0 - none): ");
 		accidental = scanner.nextInt();
-
 
 		// Generating the full root note name with accidental:
 		if (accidental == 2) {
@@ -98,9 +96,8 @@ public class mode_naming {
 			System.out.println("Invalid input");
 			System.exit(0);
 		}
-		
+
 		System.out.println(root_full + output_mode_label);
-		
 
 		// Parsing mode notes:
 		if (mode_chosen == ionian) {
@@ -108,43 +105,39 @@ public class mode_naming {
 				if (root_full.equals(circle_of_sharps_major[i])) {
 					for (int i_half_step = 0; i_half_step < 12; i_half_step++) {
 						if (ionian[i_half_step] == 1) {
-							note_set[i_half_step] = regular_sharps[i_half_step]; 
+							note_set[i_half_step] = regular_sharps[i_half_step];
 						}
 					}
-				} 
-				else if (root_full.equals(circle_of_flats_major[i])) {
+				} else if (root_full.equals(circle_of_flats_major[i])) {
 					for (int i_half_step = 0; i_half_step < 12; i_half_step++) {
 						if (ionian[i_half_step] == 1) {
-							note_set[i_half_step] = regular_flats[i_half_step]; 
+							note_set[i_half_step] = regular_flats[i_half_step];
 						}
 					}
 				}
 			}
-		} 
-		else if (mode_chosen == aeolian) {
+		} else if (mode_chosen == aeolian) {
 			for (int j = 0; j <= 6; j++) {
 				if (root_full.equals(circle_of_sharps_minor[j])) {
 					for (int j_half_step = 0; j_half_step < 12; j_half_step++) {
 						if (aeolian[j_half_step] == 1) {
-							note_set[j_half_step] = regular_sharps[j_half_step]; 
+							note_set[j_half_step] = regular_sharps[j_half_step];
 						}
 					}
-				} 
-				else if (root_full.equals(circle_of_flats_minor[j])) {
+				} else if (root_full.equals(circle_of_flats_minor[j])) {
 					for (int j_half_step = 0; j_half_step < 12; j_half_step++) {
 						if (aeolian[j_half_step] == 1) {
-							note_set[j_half_step] = regular_flats[j_half_step]; 
+							note_set[j_half_step] = regular_flats[j_half_step];
 						}
 					}
 				}
 			}
 		}
 
-
 		// Generating a new note set starting from the chosen root:
 		for (rotation_point = 0; rotation_point < note_set.length; rotation_point++) {
 			if (root_full.equals(note_set[rotation_point])) {
-				starting_note = note_set[rotation_point];
+				// starting_note = note_set[rotation_point];
 				break;
 			}
 		}
@@ -154,11 +147,11 @@ public class mode_naming {
 			}
 			note_set_updated[k] = note_set[k + rotation_point];
 		}
-		
+
 		// Printing out the updated note set:
 		for (int note = 0; note < note_set.length; note++) {
 
-			System.out.print(note_set[note] + " ");	
+			System.out.print(note_set[note] + " ");
 		}
 		System.out.println();
 	}
