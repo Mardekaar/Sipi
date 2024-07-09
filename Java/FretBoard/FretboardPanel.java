@@ -1,5 +1,5 @@
 import java.awt.Color;
-import java.awt.Dimension;
+//import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
@@ -178,11 +178,11 @@ public class FretboardPanel extends JPanel implements MouseListener {
   Rectangle E23 = new Rectangle(1119, 208, 20, 20);
   Rectangle E24 = new Rectangle(1154, 208, 20, 20);
 
-  Rectangle[] rects = {e0, e1, e2, e3, e4, e5, 
+  Rectangle[] rects = {e0, e1, e2, e3, e4, e5,
                        e6, e7, e8, e9,e10,e11,
                        e12,e13,e14,e15,e16,e17,
                        e18,e19,e20,e21,e22,e23,e24,
-                       
+
                        b0, b1, b2, b3, b4, b5,
                        b6, b7, b8, b9, b10,b11,
                        b12,b13,b14,b15,b16,b17,
@@ -260,14 +260,14 @@ public class FretboardPanel extends JPanel implements MouseListener {
     g2d.setColor(fretColor);
 
     for(int i = 0; i < rects.length; i++) {
-      g2d.fillRoundRect(rects[i].x, rects[i].y, rects[i].width, rects[i].height, 
+      g2d.fillRoundRect(rects[i].x, rects[i].y, rects[i].width, rects[i].height,
                         rectRoundness, rectRoundness);
     }
   }
 
   public void mousePressed(MouseEvent e) {
   }
-     
+
   public void mouseReleased(MouseEvent e) {
     for(int i = 0; i < rects.length; i++) {
       if(rects[i].contains(e.getX(), e.getY())) {
@@ -276,13 +276,13 @@ public class FretboardPanel extends JPanel implements MouseListener {
       }
     }
   }
-     
+
   public void mouseEntered(MouseEvent e) {
   }
-     
+
   public void mouseExited(MouseEvent e) {
   }
-     
+
   public void mouseClicked(MouseEvent e) {
   }
 }

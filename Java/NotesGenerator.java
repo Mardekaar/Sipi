@@ -4,8 +4,8 @@ import java.util.Hashtable;
 public class NotesGenerator {
 
   public static void main(String[] args) {
-    String[] flatChromatic = { "c", "db", "d", "eb", "e", "f", "gb", "g", "ab", "a", "bb", "b" };
-    String[] sharpChromatic = { "c", "c#", "d", "d#", "e", "f", "f#", "g", "g#", "a", "a#", "b" };
+    String[] flatChromatic  = {"c", "db", "d", "eb", "e", "f", "gb", "g", "ab", "a", "bb", "b"};
+    String[] sharpChromatic = {"c", "c#", "d", "d#", "e", "f", "f#", "g", "g#", "a", "a#", "b"};
 
     int[] scaleFormula = { 0, 2, 4, 5, 7, 9, 11 };
 
@@ -35,12 +35,15 @@ public class NotesGenerator {
     String[] chromaticParent = null;
     int startingNote = 0;
 
-    if (Arrays.asList(flatChromatic).contains(key)) {
+    if(Arrays.asList(flatChromatic).contains(key)) {
       chromaticParent = flatChromatic;
       startingNote = Arrays.asList(flatChromatic).indexOf(key);
     } else {
       chromaticParent = sharpChromatic;
       startingNote = Arrays.asList(sharpChromatic).indexOf(key);
+    } else {
+      chromaticParent = flatChromatic;
+      startingNote = Arrays.asList(flatChromatic).indexOf(key);
     }
 
     String[] parentScale = new String[scaleFormula.length];
@@ -54,31 +57,23 @@ public class NotesGenerator {
       parentScale[i] = chromaticParent[chromaticIndex];
     }
 
-    switch (scaleType) {
-      case "major":
-        generateMode(parentScale, scaleFormula, 0);
-        break;
-      case "ionian":
-        generateMode(parentScale, scaleFormula, 0);
-        break;
-      case "dorian":
-        generateMode(parentScale, scaleFormula, 1);
-        break;
-      case "phrygian":
-        generateMode(parentScale, scaleFormula, 2);
-        break;
-      case "lydian":
-        generateMode(parentScale, scaleFormula, 3);
-        break;
-      case "mixolydian":
-        generateMode(parentScale, scaleFormula, 4);
-        break;
-      case "aeolian":
-        generateMode(parentScale, scaleFormula, 5);
-        break;
-      case "locrian":
-        generateMode(parentScale, scaleFormula, 6);
-        break;
+    switch(scaleType) {
+      case "major" :   generateMode(parentScale, scaleFormula, 0);
+                       break;
+      case "ionian":   generateMode(parentScale, scaleFormula, 0);
+                       break;
+      case "dorian":   generateMode(parentScale, scaleFormula, 1);
+                       break;
+      case "phrygian": generateMode(parentScale, scaleFormula, 2);
+                       break;
+      case "lydian": generateMode(parentScale, scaleFormula, 3);
+                       break;
+      case "mixolydian": generateMode(parentScale, scaleFormula, 4);
+                       break;
+      case "aeolian": generateMode(parentScale, scaleFormula, 5);
+                       break;
+      case "locrian": generateMode(parentScale, scaleFormula, 6);
+                       break;
     }
 
     System.out
@@ -95,6 +90,6 @@ public class NotesGenerator {
       System.out.print(notes[i] + ", ");
     }
 
-    System.out.print(notes[offset] + "\n");
+    System.out.print(notes[offset] +"\n");
   }
 }
