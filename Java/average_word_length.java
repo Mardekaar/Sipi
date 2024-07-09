@@ -6,7 +6,7 @@ public class average_word_length {
 	public static void main(String[] args) {
 		/*
 		 * input
-		 * 
+		 *
 		 * count characters
 		 * count spaces
 		 * word count = spaces + 1
@@ -35,6 +35,6 @@ public class average_word_length {
 		System.out.println("spaces: " + spaces);
 		System.out.println("word count: " + word_count);
 		System.out.println(String.format("Average word count: %.1f", average));
-
+		scanner.close();
 	}
 }
