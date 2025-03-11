@@ -14,7 +14,8 @@ if (Test-Path $langMapFile) {
         $langMap[$entry.Name] = $entry.Value
         Write-Output "Mapping: $($entry.Name) -> $($entry.Value)"
     }
-} else {
+}
+else {
     Write-Output "langmap.txt not found in the current folder."
     exit
 }
@@ -26,14 +27,16 @@ foreach ($objFile in Get-ChildItem -Path $objFolder.Path -File | Where-Object { 
 
     if ($langMap.ContainsKey($strLang)) {
         $mappedLang = $langMap[$strLang]
-    } else {
+    }
+    else {
         $mappedLang = $strLang  # Use the original language code if no mapping is found
     }
-    Write-Output "Mapped lang: $mappedLang"
+    #Write-Output "Mapped lang: $mappedLang"
     $strFolderPath = "$($objFolder.Path)\$mappedLang\"
 
     if (-not $objFSO.FolderExists($strFolderPath)) {
-        $objFolder2 = $objFSO.CreateFolder($strFolderPath)
+        #$objFolder2 = $objFSO.CreateFolder($strFolderPath)
+        $objFSO.CreateFolder($strFolderPath)
     }
 
     $objFSO.MoveFile($objFile.FullName, $strFolderPath)
