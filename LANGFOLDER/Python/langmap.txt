@@ -1,5 +1,5 @@
 {
-    "ar": "ar-AE",
+    "ar": "ar-AE", 
     "ar_ae": "ar-AE",
     "ar_AE": "ar-AE",
     "ar_sa": "ar-AE",
