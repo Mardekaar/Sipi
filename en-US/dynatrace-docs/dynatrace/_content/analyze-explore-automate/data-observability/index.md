@@ -6,4 +6,6 @@ toc: false
 readtime: 1
 ---
 
+INDEX
+
 Our first and last markdown file ever.
