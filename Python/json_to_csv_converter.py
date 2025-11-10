@@ -22,7 +22,7 @@ def process_json_to_csv(input_json_path, output_csv_path):
                     content_text = content['content']
                     content_dict[language] = content_text
                     all_languages.add(language)
-                
+
                 if content_dict:  # Only add if we found any content
                     contents_by_section.append(content_dict)
 
@@ -32,10 +32,10 @@ def process_json_to_csv(input_json_path, output_csv_path):
     # Write to CSV
     with open(output_csv_path, 'w', encoding='utf-8', newline='') as csv_file:
         writer = csv.writer(csv_file)
-        
+
         # Write header row with language codes
         writer.writerow(languages)
-        
+
         # Write content rows
         for content_dict in contents_by_section:
             # Create a row with content for each language (or empty string if no content)
@@ -49,7 +49,7 @@ if __name__ == "__main__":
     # Example usage
     input_json_path = "input.json"  # Replace with your JSON file path
     output_csv_path = "output.csv"  # Replace with desired output CSV path
-    
+
     try:
         process_json_to_csv(input_json_path, output_csv_path)
     except Exception as e:
