@@ -1,0 +1,33 @@
+Table 1
+Instrument;Strings;Tuning (High to Low);Dots
+Banjo 4-string;4;DAGD;Mandolin/Banjo/Ukulele
+Bass 4-string Drop D;4;GDAD;Guitar/Bass
+Bass 4-string Standard;4;GDAE;Guitar/Bass
+Bass 5-string Drop A;5;GDAEA;Guitar/Bass
+Bass 5-string Standard High;5;CGDAE;Guitar/Bass
+Bass 5-string Standard Low;5;GDAEB;Guitar/Bass
+Bass 6-string;6;CGDAEB;Guitar/Bass
+Bass 7-string;7;CGDAEBF#;Guitar/Bass
+Guitar 10-string Drop F#;10;EBGDAEBF#C#F#;Guitar/Bass
+Guitar 10-string Standard;10;EBGDAEBF#C#G#;Guitar/Bass
+Guitar 6-string DADGAD;6;DAGDAD;Guitar/Bass
+Guitar 6-string Drop D;6;EBGDAD;Guitar/Bass
+Guitar 6-string Open D;6;DAF#DAD;Guitar/Bass
+Guitar 6-string Open E;6;EBG#EBE;Guitar/Bass
+Guitar 6-string Open G;6;DBGDGD;Guitar/Bass
+Guitar 6-string Standard;6;EBGDAE;Guitar/Bass
+Guitar 7-string Drop A;7;EBGDAEA;Guitar/Bass
+Guitar 7-string Standard;7;EBGDAEB;Guitar/Bass
+Guitar 8-string Drop E;8;EBGDAEBE;Guitar/Bass
+Guitar 8-string Standard;8;EBGDAEBF#;Guitar/Bass
+Guitar 9-string Drop B;9;EBGDAEBF#B;Guitar/Bass
+Guitar 9-string Standard;9;EBGDAEBF#C#;Guitar/Bass
+Lute 10-string Baroque Dm;10;FDAFDAGFED;Off
+Lute 10-string Renaissance G;10;GDAFCGFEbDC;Off
+Lute 6-string Renaissance G;6;GDAFCG;Off
+Lute 7-string Renaissance G;7;GDAFCGF;Off
+Lute 8-string Renaissance G;8;GDAFCGFE;Off
+Lute 9-string Renaissance G;9;GDAFCGFEbD;Off
+Mandola;4;ADGC;Mandolin/Banjo/Ukulele
+Mandolin;4;EADG;Mandolin/Banjo/Ukulele
+Ukulele;4;AECG;Mandolin/Banjo/Ukulele
