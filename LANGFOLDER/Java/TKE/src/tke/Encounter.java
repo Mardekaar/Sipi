@@ -40,11 +40,8 @@ public class Encounter extends Application {
         stage.setScene(canvas);
         
         Stop[] rgStops = {new Stop(.83, Color.WHITE), new Stop(1, Color.BLACK)};
-        final RadialGradient rg = RadialGradientBuilder.create()
-                /*.centerX(400).centerY(270)*/
-                .radius(60).proportional(false)
-                .stops(rgStops)
-                .build();
+        final RadialGradient rg = new RadialGradient(
+            0, 0, 0, 0, 60, false, CycleMethod.NO_CYCLE, rgStops);
         
         //cX, cY, radius, color
         final Circle finder = new Circle(400f, 270f, 50f, Color.WHITE);
